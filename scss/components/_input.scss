@@ -1,0 +1,90 @@
+.input-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  &__control,
+  &__select {
+    width: 100%;
+
+    @media screen and (min-width: $bp-tablet) {
+      max-width: 200px;
+    }
+  }
+}
+
+.inputs-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  &__label-outside {
+    width: min-content;
+    flex-grow: 1;
+    align-self: center;
+
+    @media screen and (min-width: $bp-tablet) {
+      width: max-content;
+    }
+  }
+
+  &__control {
+    max-width: 100px;
+  }
+}
+
+.input {
+  position: relative;
+
+  &__label-outside {
+    font-size: 0.875em;
+    font-weight: 400;
+    color: var(--color3);
+    position: absolute;
+    top: 0.8em;
+    left: 1.2em;
+
+    @media screen and (min-width: $bp-tablet) {
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      align-self: center;
+      position: static;
+    }
+  }
+
+  &__label-inside {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color3);
+    position: absolute;
+    top: 0.8em;
+    left: 1.2em;
+  }
+
+  &__control,
+  &__select {
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid var(--color3);
+    border-radius: 8px;
+
+    &--inside {
+      padding: 2em 1em 0.5em;
+    }
+
+    &--outside {
+      padding: 2em 1em 0.5em;
+
+      @media screen and (min-width: $bp-tablet) {
+        padding: 1em;
+      }
+    }
+
+    &--max {
+      width: 100%;
+    }
+  }
+}

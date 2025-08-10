@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сalculators & converters</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/main.min.css" />
+  </head>
+  <body>
+    <!-- <h1>Сalculators & converters</h1> -->
+    <main>
+      <section class="deposit-calc" id="depositSection">
+        <div class="deposit-calc__wrapper">
+          <form class="deposit-calc__grid" name="depositCalc" id="depositCalc">
+            <div class="deposit-calc__grid-title">
+              <h2 class="deposit-calc__title section-title title">
+                Deposit Calculator 💸
+              </h2>
+            </div>
+            <div class="deposit-calc__grid-form">
+              <div class="deposit-calc__input-field">
+                <div class="input-row input">
+                  <label class="input__label-outside" for="depositAmount"
+                    >Deposit Amount
+                  </label>
+                  <input
+                    class="input-row__control input__control input__control--outside"
+                    type="number"
+                    id="depositAmount"
+                    min="1"
+                    max="50000000"
+                    value="0"
+                    required
+                  />
+                </div>
+                <span class="text-error" id="depositAmountError"></span>
+              </div>
+
+              <div class="deposit-calc__input-field">
+                <div class="input-row input">
+                  <label class="input__label-outside" for="interestRate"
+                    >Annual Interest Rate, %
+                  </label>
+                  <input
+                    class="input-row__control input__control input__control--outside"
+                    type="number"
+                    id="interestRate"
+                    value="0"
+                    required
+                  />
+                </div>
+                <span class="text-error" id="interestRateError"></span>
+              </div>
+
+              <div class="deposit-calc__input-field">
+                <div class="input-row input">
+                  <label class="input__label-outside" for="compound"
+                    >Compound Frequency
+                  </label>
+                  <select
+                    class="input-row__select input__select input__select--outside"
+                    name="compound"
+                    id="compound"
+                  >
+                    <option value="Monthly">Monthly</option>
+                    <option value="Quarterly">Quarterly</option>
+                    <option value="Semiannually">Semiannually</option>
+                    <option value="Annually">Annually</option>
+                  </select>
+                </div>
+                <span class="text-error" id="compoundError"></span>
+              </div>
+
+              <div class="deposit-calc__input-field">
+                <div class="inputs-group input">
+                  <span class="inputs-group__label-outside">Deposit Term</span>
+
+                  <div class="input">
+                    <label class="input__label-inside" for="termYears"
+                      >Years
+                    </label>
+                    <input
+                      class="inputs-group__control input__control input__control--inside"
+                      type="number"
+                      id="termYears"
+                      value="1"
+                      min="0"
+                      step="1"
+                      required
+                    />
+                  </div>
+
+                  <div class="input">
+                    <label class="input__label-inside" for="termMonths"
+                      >Months
+                    </label>
+                    <input
+                      class="inputs-group__control input__control input__control--inside"
+                      type="number"
+                      id="termMonths"
+                      value="0"
+                      min="0"
+                      max="11"
+                      step="1"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <span class="text-error" id="termYearsError"></span>
+                <span class="text-error" id="termMonthsError"></span>
+              </div>
+
+              <div class="deposit-calc__input-field">
+                <div class="checkbox-group" id="addFunds">
+                  <div class="checkbox-group__checkbox input">
+                    <label
+                      class="checkbox-group__checkbox-label"
+                      for="addFundsCheckbox"
+                      >Add Funds to Deposit
+                    </label>
+                    <div class="checkbox">
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        id="addFundsCheckbox"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="checkbox-group__input input">
+                    <label
+                      class="input__label-inside"
+                      for="depositMonthlyAddition"
+                      >Monthly Addition:
+                    </label>
+                    <input
+                      class="input__control input__control--inside input__control--max"
+                      type="number"
+                      id="depositMonthlyAddition"
+                      min="1"
+                      value="0"
+                    />
+
+                    <p class="checkbox-group__text text-hint">
+                      Deposits are added at the end of each month (except the
+                      final one).
+                    </p>
+                    <p class="checkbox-group__text text-hint">
+                      Interest on each monthly addition starts accruing from the
+                      following month.
+                    </p>
+                  </div>
+                </div>
+
+                <span class="text-error" id="monthlyAdditionError"></span>
+              </div>
+
+              <div class="deposit-calc__input-field">
+                <div class="checkbox-group" id="calcInclusiveTaxes">
+                  <div class="checkbox-group__checkbox input">
+                    <label
+                      class="checkbox-group__checkbox-label"
+                      for="calcInclusiveTaxesCheckbox"
+                      >Calculate inclusive of taxes
+                    </label>
+                    <div class="checkbox">
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        id="calcInclusiveTaxesCheckbox"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="checkbox-group__input input">
+                    <label class="input__label-inside" for="taxRate"
+                      >Tax rate (%):
+                    </label>
+                    <input
+                      class="input__control input__control--inside input__control--max"
+                      type="number"
+                      id="taxRate"
+                      min="0"
+                      max="100"
+                      value="0"
+                    />
+
+                    <p class="checkbox-group__text text-hint">
+                      The tax is deducted when interest is paid.
+                    </p>
+                  </div>
+                </div>
+
+                <span class="text-error" id="taxRateError"></span>
+              </div>
+
+              <button
+                class="deposit-calc__btn btn btn__accent"
+                type="button"
+                id="depositCalcBtn"
+              >
+                Calculate
+              </button>
+              <button class="btn" type="reset" id="depositResetBtn">
+                Clear
+              </button>
+            </div>
+
+            <div class="deposit-calc__grid-info">
+              <output class="deposit-calc__info">
+                <span
+                  class="deposit-calc__info-text deposit-calc__info-text--space block"
+                  >You will receive &#x1F680;
+                  <span
+                    class="deposit-calc__output-value deposit-calc__output-value--lg block"
+                    id="finalBalanceOut"
+                  ></span
+                ></span>
+
+                <span class="deposit-calc__output-label"
+                  >Money invested
+                  <span
+                    class="deposit-calc__output-value block"
+                    id="investedOut"
+                  ></span>
+                </span>
+
+                <span class="deposit-calc__output-label"
+                  >Interest rate
+                  <span
+                    class="deposit-calc__output-value block"
+                    id="interestRateOut"
+                  ></span>
+                </span>
+
+                <span class="deposit-calc__output-label"
+                  >Interest rate after taxes
+                  <span
+                    class="deposit-calc__output-value block"
+                    id="rateAfterTaxesOut"
+                  ></span>
+                </span>
+
+                <span class="deposit-calc__output-label"
+                  >Taxes withheld
+                  <span
+                    class="deposit-calc__output-value block"
+                    id="taxesOut"
+                  ></span>
+                </span>
+              </output>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script src="./js/deposit-calc.js"></script>
+    <script src="./js/checkbox-group.js"></script>
+  </body>
+</html>

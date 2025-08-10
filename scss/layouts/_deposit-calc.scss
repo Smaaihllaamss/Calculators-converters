@@ -1,0 +1,174 @@
+.deposit-calc {
+  padding: 26px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+
+  @media screen and (min-width: $bp-laptop) {
+    background: linear-gradient(243.18deg, #396a9a 0, #1b2032 100%),
+      linear-gradient(244.83deg, #8195a3 0, #424e66 100%),
+      linear-gradient(243.18deg, #396a9a 0, #1b2032 100%);
+    padding: 72px;
+  }
+
+  &__wrapper {
+    width: 100%;
+    max-width: 340px;
+    background-color: var(--color6);
+    padding: 0 8px;
+    margin: 0 auto;
+    position: relative;
+
+    @media screen and (min-width: $bp-tablet) {
+      max-width: max-content;
+      padding: 36px 8px;
+    }
+
+    @media screen and (min-width: $bp-laptop) {
+      max-width: 1110px;
+      border: 1px solid black;
+      border-radius: 35px;
+      padding: 72px 8px;
+    }
+
+    &::after {
+      content: '';
+
+      @media screen and (min-width: $bp-laptop) {
+        width: 51%;
+        height: 100%;
+        background-color: var(--color5);
+        border-radius: 0 35px 35px 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-areas:
+      'title'
+      'form'
+      'info';
+
+    @media screen and (min-width: $bp-laptop) {
+      grid-template-areas:
+        'title title'
+        'form info';
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__grid-title {
+    grid-area: title;
+
+    padding: 0 16px 32px;
+
+    @media screen and (min-width: $bp-laptop) {
+      max-width: 50%;
+      padding: 0 64px 42px;
+      z-index: 2;
+    }
+  }
+
+  &__grid-form {
+    grid-area: form;
+  }
+
+  &__grid-info {
+    grid-area: info;
+
+    @media screen and (min-width: $bp-laptop) {
+      z-index: 1;
+    }
+  }
+
+  &__grid-form,
+  &__grid-info {
+    padding: 24px 16px;
+
+    @media screen and (min-width: $bp-laptop) {
+      padding: 0 64px;
+    }
+  }
+
+  &__input-field {
+    margin-bottom: 3rem;
+  }
+
+  &__btn {
+    margin-right: 1rem;
+  }
+
+  &__info {
+    display: grid;
+    font-size: 0.875em;
+    font-weight: 400;
+    gap: 1.5rem;
+  }
+
+  &__info-text {
+    font-size: 1.125em;
+    font-weight: 700;
+    line-height: 1.22;
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 2px;
+      color: var(--color3);
+      position: absolute;
+      bottom: -1.5rem;
+      left: 0;
+    }
+
+    &--space {
+      letter-spacing: 0.05em;
+    }
+  }
+
+  &__output-label {
+    color: var(--color3);
+  }
+
+  &__output-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: inherit;
+    color: var(--primary);
+
+    &--lg {
+      white-space: nowrap;
+      font-size: clamp(2rem, 8vw, 3rem);
+      position: relative;
+
+      @media screen and (min-width: $bp-tablet) {
+        font-size: clamp(2rem, 6.5vw, 4rem);
+      }
+
+      @media screen and (min-width: $bp-laptop) {
+        font-size: clamp(2rem, 4vw, 4rem);
+      }
+
+      @media screen and (min-width: 1500px) {
+        font-size: clamp(2rem, 3.5vw, 4rem);
+      }
+
+      &::after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: var(--color3);
+        opacity: 0.3;
+        position: absolute;
+        bottom: -1.2rem;
+        right: 0;
+      }
+    }
+  }
+}

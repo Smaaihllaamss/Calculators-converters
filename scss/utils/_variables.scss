@@ -1,0 +1,20 @@
+:root {
+  font-size: 16px;
+
+  // Colors:
+  --primary: #323232;
+  --secondary: #737373;
+  --color3: #878787;
+  --color4: #f9f9f9;
+  --color5: #f7f7f7;
+  --color6: #fff;
+
+  --accent1: #fa5255;
+
+  // Transitions:
+  --transition1: all 0.3s ease-in-out;
+}
+
+// Breakpoints:
+$bp-tablet: 769px;
+$bp-laptop: 1000px;
